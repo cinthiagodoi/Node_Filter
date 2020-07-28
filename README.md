@@ -11,7 +11,7 @@ Before you begin, you will need to have the following tools installed on your ma
 # Clone this repository
 $ git clone git@github.com:cinthiagodoi/Node_Filter.git
 
-# Opend the index.html file on your browser
+# run node index.js on your terminal
 ```
 ## Built With
 
