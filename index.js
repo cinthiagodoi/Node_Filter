@@ -9,9 +9,6 @@ const smallerCities = []
 
 const init = () => {
   writeStateFiles();
-  //userInputState();
-  //biggerStates();
-  
 }
 
 const readFile = async (file) => JSON.parse(await fs.readFile(file));
@@ -37,13 +34,14 @@ const writeStateFiles = async () => {
   } catch(err) {
     console.log(err)
   }
-  biggerCityName(stateInformation)
-  smallerCityName(stateInformation)
-      //biggerStates(stateInformation);
-    //smallerStates(stateInformation);
+  //userInputState();
+  //biggerCityName(stateInformation)
+  //smallerCityName(stateInformation)
+  //biggerStates(stateInformation);
+  smallerStates(stateInformation);
+  
 }
 const filterState = (val, state) => { return val.Estado === state.ID }
-
 
 const readInterface = readline.createInterface({
   input: process.stdin,
@@ -91,7 +89,7 @@ const biggerCityName = async (states) => {
       });
     }
   }catch(err){console.log(err)}
-  //console.log(bigestCities)
+  console.log(bigestCities)
   bigName(bigestCities)
 }
 
@@ -114,7 +112,7 @@ const smallerCityName = async (states) => {
       });
     }
   }catch(err){console.log(err)}
-  //console.log(smallerCities)
+  console.log(smallerCities)
   smallName(smallerCities)
 }
 
@@ -123,7 +121,6 @@ const smallName = (smallerCities) => {
   let alphabeticalOrder = (smallerCities.sort((a, b) => {
     return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
   }))
-
   console.log(alphabeticalOrder.sort((x, y) => x.name.length - y.name.length).slice(0,1))
 }
 
@@ -131,9 +128,8 @@ const bigName = (bigestCities) => {
   let alphabeticalOrder = (bigestCities.sort((a, b) => {
     return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
   }))
-  console.log(alphabeticalOrder.sort((x, y) => x.name.length - y.name.length).slice(0,1))
+  console.log(alphabeticalOrder.sort((x, y) => y.name.length - x.name.length).slice(0,1))
 }
-
 
 init();
 
